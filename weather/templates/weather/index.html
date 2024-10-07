@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 text-light orange-text">Weather Application</h1>
+        <form id="city-form" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Get Weather</button>
+        </form>
+
+        <div id="weather-info" class="mt-4 text-light">
+            {% if weather_data %}
+                <h3>Weather Data for {{ weather_data.name }}, {{ weather_data.sys.country }}:</h3>
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Temperature:</strong> {{ weather_data.main.temp }} °C</li>
+                    <li class="list-group-item"><strong>Feels Like:</strong> {{ weather_data.main.feels_like }} °C</li>
+                    <li class="list-group-item"><strong>Weather:</strong> {{ weather_data.weather.0.description }}</li>
+                    <li class="list-group-item"><strong>Humidity:</strong> {{ weather_data.main.humidity }}%</li>
+                    <li class="list-group-item"><strong>Wind Speed:</strong> {{ weather_data.wind.speed }} m/s</li>
+                    <li class="list-group-item"><strong>Pressure:</strong> {{ weather_data.main.pressure }} hPa</li>
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

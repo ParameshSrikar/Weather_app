@@ -1,0 +1,33 @@
+/* static/css/style.css */
+body {
+    background-image: url("../images/background.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Full height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.orange-text {
+    color: orange;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+
+#weather-info {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #19ea62;
+    border-radius: 5px;
+}
+
+.text-light {
+    color: #1b75cf !important;
+}
+
