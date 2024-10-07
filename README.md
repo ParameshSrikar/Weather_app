@@ -22,19 +22,22 @@ Virtualenv (optional but recommended)
 Setup
 -------
 1. Clone the repository
-                    git clone https://github.com/ParameshSrikar/weather_app
-                    cd django-weather-app
-2. Create a virtual environment and activate it
-                 python -m venv venv
-                 source venv/bin/activate  # On Windows, use: venv\Scripts\activate
-3. Install the required dependencies
-pip install -r requirements.txt
 
-5. Set up PostgreSQL
+   git clone https://github.com/ParameshSrikar/weather_app
+
+   cd django-weather-app
+3. Create a virtual environment and activate it
+
+   python -m venv venv
+
+   source venv/bin/activate  # On Windows, use: venv\Scripts\activate
+5. Install the required dependencies
+
+   pip install -r requirements.txt
+
+6. Set up PostgreSQL
 Create a PostgreSQL database and configure the connection in the settings.py file:
 
-python
-Copy code
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -45,10 +48,13 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+
 4. Obtain API Key from OpenWeather
 Create a free account on the OpenWeather API website, and obtain your API key. Add the key to your environment variables or directly in the Django settings file:
 
 OPENWEATHER_API_KEY = 'your_api_key'
+
 You can also use Django’s environment variable support by setting up a .env file with django-environ.
 
 5. Run migrations
@@ -64,6 +70,7 @@ python manage.py runserver
 The application should now be running at http://127.0.0.1:8000/.
 
 Usage
+----------
 Open the application in your browser.
 Enter a city name in the search bar.
 The weather information for the entered city will be retrieved and displayed.
